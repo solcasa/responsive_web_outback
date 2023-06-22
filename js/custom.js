@@ -47,13 +47,20 @@ $(function () {
 
     const ItmSlide = new Swiper('.itm_slide', {
         loop: true,
-        slidesPerView: 2,
-        spaceBetween: 400,
+        slidesPerView: 1,
+        spaceBetween: 0,
         speed: 900,
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
         },
+
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 400,
+            }
+        }
     });
 
     $('.MainItm .arrows .left').on('click', function () {
@@ -67,7 +74,19 @@ $(function () {
     //     ItmSlide.slidePrev();
     // }) 위에것과 동일.
 
+    $('.mobile_btn').on('click', function () {
+        $(this).toggleClass('on');
+        $('.Gnb').toggleClass('on')
+    });
 
+    $('.Gnb>ul>li>a').on('click', function (e) {
+        e.preventDefault();
+        $(this).next().stop().slideDown();
+        $(this).parent().siblings().find('.snb').slideUp();
+    });
 
+    $(window).on('resize', function () {
+        $('.Gnb .snb').removeAttr('style');
 
+    });
 })

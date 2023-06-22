@@ -36,6 +36,50 @@
     color: #fff;
 }
 
+.Header .Gnb>ul>li {
+    position: relative;
+    line-height: 100px;
+}
+
+.Header .Gnb>ul>li::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 3px;
+    background: #be161e;
+}
+
+.Header .Gnb>ul>li:hover::after {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.Header .Gnb>ul>li>.snb {
+    position: absolute;
+    top: 100px;
+    left: -40px;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 40px;
+
+    display: none;
+}
+
+.Header .Gnb>ul>li:hover .snb {
+    display: block;
+}
+
+.Header .Gnb>ul>li .snb a {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+
 .Header .login {
     display: flex;
     gap: 30px;
@@ -583,7 +627,7 @@
     padding: 0 8px;
 }
 
-.Footer .authorul span::before {
+.Footer .author ul span::before {
     content: "";
     display: inline-block;
     width: 1px;
@@ -602,4 +646,305 @@
     color: #ddd;
     font-size: 18px;
     border-radius: 50%;
+}
+
+.mobile_btn {
+    display: none;
+}
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+responsive 768
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .Header h1 {
+        position: fixed;
+        z-index: 1000;
+        padding: 0 0 0 15px;
+    }
+
+    .Header.on .logo {
+        background: url(../images/logo_white_type_02.png) no-repeat;
+    }
+
+    .Header .Gnb {
+        position: fixed;
+        inset: 0 auto 0 100%;
+        background: #444;
+        width: 100%;
+
+        transition: 0.5s;
+    }
+
+    .Header .Gnb.on {
+        inset: 0 auto 0 0;
+    }
+
+    .Header .Gnb>ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 150px 30px 0 30px;
+    }
+
+    .Header .Gnb>ul>li>a {
+        border-bottom: 1px solid #666;
+    }
+
+    .Header .Gnb>ul>li {
+        line-height: 40px;
+    }
+
+    .Header .Gnb>ul>li::after {
+        bottom: 0;
+        height: 2px;
+    }
+
+    .Header .Gnb>ul>li>.snb {
+        position: static;
+        background: rgba(0, 0, 0, 1);
+        padding: 0 0 0 0;
+    }
+
+    .Header .Gnb>ul>li:hover .snb {
+        display: none;
+    }
+
+    .Header .Gnb>ul>li .snb a {
+        padding: 0 0 0 15px;
+    }
+
+    .Header .login {
+        display: none;
+    }
+
+    .mobile_btn {
+        /* r */
+        display: block;
+
+        position: fixed;
+        inset: 30px 30px auto auto;
+        z-index: 1000;
+
+        width: 30px;
+        height: 30px;
+        background: #ddd;
+        border-radius: 5px;
+    }
+
+    .mobile_btn::before,
+    .mobile_btn::after {
+        content: "";
+        position: absolute;
+        inset: 14px 5px auto 5px;
+        /* inset 30 - 2= 28 /2 = 14px */
+        height: 2px;
+        background: #444;
+    }
+
+    .mobile_btn.on::before {
+        transform: rotate(45deg);
+        transition: 0.5s 0.2s;
+    }
+
+    .mobile_btn.on::after {
+        transform: rotate(-225deg);
+        transition: 0.5s 0.6s;
+    }
+
+    .mobile_btn button {
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .mobile_btn button::before,
+    .mobile_btn button::after {
+        content: "";
+        position: absolute;
+        inset: 14px 5px auto 5px;
+        /* inset 30 - 2= 28 /2 = 14px */
+        height: 2px;
+        background: #444;
+    }
+
+    .mobile_btn button::before {
+        inset: 7px 5px auto 5px;
+    }
+
+    .mobile_btn button::after {
+        inset: auto 5px 7px 5px;
+    }
+
+    .mobile_btn.on button::before {
+        display: none;
+    }
+
+    .mobile_btn.on button::after {
+        display: none;
+    }
+
+    .MainVisual .main_slide .itm {
+        height: 500px;
+    }
+
+    .MainVisual .main_slide .itm01 .slide-img {
+        background: url(../images/main01.jpg) no-repeat center top/cover;
+    }
+
+    .MainVisual .main_slide .itm02 .slide-img {
+        background: url(../images/main02.jpg) no-repeat center top/cover;
+    }
+
+    .MainVisual .main_slide .itm03 .slide-img {
+        background: url(../images/main03.jpg) no-repeat 30% top/cover;
+    }
+
+    .MainVisual .main_slide .itm04 .slide-img {
+        background: url(../images/main04.jpg) no-repeat 30% top/cover;
+    }
+
+    .MainVisual .main_slide .itm05 .slide-img {
+        background: url(../images/main05.jpg) no-repeat 30% top/cover;
+    }
+
+    .MainItm .detail .txt {
+        position: static;
+        opacity: 1;
+        width: auto;
+        margin: 0 0 30px 0;
+    }
+
+    .MainItm .detail .txt h3 {
+        font-size: 30px;
+        margin: 0 0 20px 0;
+    }
+
+
+    .MainItm .detail figure img {
+        transform: scale(1);
+        transform-origin: 0 0;
+    }
+
+
+    .MainItm .arrows {
+        z-index: 998;
+    }
+
+    .MainBenefit .benefit_wrap {
+        width: auto;
+    }
+
+    .MainBenefit .list {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .MainReward {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .MainReward::before {
+        right: 15px;
+    }
+
+    .MainReward .inner {
+        grid-template-columns: 1fr;
+    }
+
+    .MainReward .title .case {
+        top: -6px;
+        left: -6px;
+        bottom: 50px;
+    }
+
+    .MainReward .list {
+        gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .MainOrder .order_wrap {
+        width: auto;
+    }
+
+    .MainOrder .order_wrap .inner {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 0 0 0;
+    }
+
+    .Footer {
+        padding: 50px 15px;
+    }
+
+    .Footer .top {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .Footer .top .left {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .Footer .top .left a {
+        text-align: center;
+    }
+
+    .Footer .top .right {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+
+    .Footer .top .right li~li::before {
+        display: none;
+    }
+
+
+    .Footer .bottom {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+
+    .Footer .author ul span {
+        display: block;
+        padding: 0 0;
+    }
+
+    .Footer .author ul span::before {
+        display: none;
+    }
+
 }
